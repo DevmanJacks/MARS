@@ -1,0 +1,6 @@
+// All things streams
+
+interface Stream {
+    Write(b: []Byte, offset: UInt, length: UInt)
+    WriteByte(b: Byte)
+}

@@ -1,0 +1,29 @@
+// Tokens
+
+export enum TokenKind {
+    EndOfSource
+
+    Identifier
+    IntegerLiteral
+}
+
+export struct Token {
+    kind:  TokenKind
+    start: Pos
+    end:   Pos
+
+    // Don't reference this directly - it may not have a value
+    lexeme: String
+}
+
+export func Token(kind: TokenKind, start: Pos, end: Pos) -> Token {
+    return Token { kind = kind, start = start, end = end }
+}
+
+// export func Token.Lexeme() -> String {
+//     if lexeme.data == nil {
+//         lexeme = SourceCodeBetween(start, end)
+//     }
+// 
+//     return lexeme
+// }

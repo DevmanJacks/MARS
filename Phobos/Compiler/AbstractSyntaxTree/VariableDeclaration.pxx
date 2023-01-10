@@ -1,0 +1,18 @@
+struct VariableDeclaration {
+    varToken:   Token
+    identifier: Identifier
+    type:       Type
+    expression: Expression
+}
+
+func VariableDeclaration.StartPos() -> Pos {
+    return varToken.EndPos()
+}
+
+func VariableDeclaration.EndPos() -> Pos {
+    if expression == nil {
+        return type.EndPos()
+    } else {
+        return expression.EndPos()
+    }
+}

@@ -1,0 +1,11 @@
+[
+{"Node":"Package","Name":"Phobos","Path":"D:\\Development\\MARS\\Phobos","Files":[
+{"Node":"PackageFile","Filename":"D:\\Development\\MARS\\Phobos\\BuiltinTypes.p","Declarations":[
+{"Node":"StructDeclaration","Name":{"Node":"Identifier","Name":"BuiltinType"},"Fields":[{"Node":"Field","Name":{"Node":"Identifier","Name":"test"},"Type":{"Node":"Identifier","Name":"Int"}}]}]}]},
+{"Node":"Package","Name":"Phobos.Compiler","Path":"D:\\Development\\MARS\\Phobos\\Compiler","Files":[
+{"Node":"PackageFile","Filename":"D:\\Development\\MARS\\Phobos\\Compiler\\Test.p","Declarations":[
+{"Node":"EnumDeclaration","Name":{"Node":"Identifier","Name":"FunctionSelect"},"Values":[{"Node":"EnumValue","Name":{"Node":"Identifier","Name":"Input"},"Expression":0},{"Node":"EnumValue","Name":{"Node":"Identifier","Name":"Output"},"Expression":1}]},
+{"Node":"FunctionDeclaration","QualifiedIdentifier":{"Node":"Identifier","Name":"Main"},"Signature":{"Node":"Signature","Parameters":[],"ReturnType":null},"Body":[{"Node":"ConstantDeclaration","Name":{"Node":"Identifier","Name":"GPFSEL1"},"Type":{"Node":"Pointer","BaseType":{"Node":"Identifier","Name":"UInt32"}},"Expression":538968068},
+{"Node":"ConstantDeclaration","Name":{"Node":"Identifier","Name":"GPCLR0"},"Type":{"Node":"Pointer","BaseType":{"Node":"Identifier","Name":"UInt32"}},"Expression":538968104},
+{"Node":"Assignment","Lvalue":{"Node":"PointerDereference","Expression":{"Node":"Identifier","Name":"GPFSEL1"}}, "Operation":"=","Expression":{"Node":"BinaryExpression","Left": {"Node":"Selector","Left":{"Node":"Identifier","Name":"FunctionSelect"},"Right":{"Node":"Identifier","Name":"Output"}},"Op":"<<","Right":18}},
+{"Node":"Assignment","Lvalue":{"Node":"PointerDereference","Expression":{"Node":"Identifier","Name":"GPCLR0"}}, "Operation":"=","Expression":{"Node":"BinaryExpression","Left": 1,"Op":"<<","Right":16}}]}]}]}]

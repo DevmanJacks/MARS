@@ -1,0 +1,7 @@
+// Binary expressions
+
+export struct BinaryExpression {
+    left:  Expression
+    op:    Token
+    right: Expression
+}

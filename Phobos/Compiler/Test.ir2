@@ -1,0 +1,19 @@
+Entry point: Phobos.Compiler.Main
+
+InitialiseGlobals:
+    BeginFunc ???
+----- Block 0 -----
+    EndFunc 
+
+
+Phobos.Compiler.Main:
+    BeginFunc ???
+----- Block 0 -----
+    GPFSEL1 = 538968068
+    GPCLR0 = 538968104
+    _t2 = 262144
+    *(GPFSEL1) = _t2
+    _t3 = 65536
+    *(GPCLR0) = _t3
+    EndFunc 
+

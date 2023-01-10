@@ -1,0 +1,19 @@
+// Generic List functionality
+
+export struct List<T> {
+    count: Int
+    list: ^Array<T>
+}
+
+func List<T>.Add(item: T) {
+    if count == list.length {
+       Extend()
+    }
+
+    list[count] = item
+    count += 1
+}
+
+func List<T>.Extend() {
+    
+}

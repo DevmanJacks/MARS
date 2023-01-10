@@ -1,0 +1,62 @@
+// Generic Map functionality
+
+struct KeyValuePair<K, V> {
+    key:   K
+    value: V
+}
+
+enum MapError {
+    None
+    Noney
+}
+
+const initialCapacity = 16
+const maxDensity = 0.6
+
+interface Hashable {
+    Hash() -> Int
+}
+
+struct Map<K: Hashable, V> {
+    count:    Int
+    data:     ^Array<KeyValuePair<K, V>>
+} 
+
+func Map<K, V>.SetValueAtIndex(index: K, value: V) -> MapError {
+    currentDensity = Float(count) / data.length
+    
+    if currentDensity > maxDensity
+        ResizeData()
+
+    hash := index.Hash()
+    hashbucket := hash % data.length
+    bucket := hashBucket
+    pair := data[bucket]
+
+    // TODO: Finish this!!!
+}
+
+func Map<K, V>.ValueAtIndex(index: K) -> (value: V, error: MapError) {
+    hash := index.Hash()
+    hashbucket := hash % data.Length()
+    bucket := hashBucket
+    pair := data[bucket]
+
+    while pair != nil && pair.key != index {
+        bucket += 1
+
+        if bucket > data.Length
+            bucket = 0
+
+        pair = data[bucket]
+    }
+
+    if pair == nil
+        return nil
+    else
+        return pair.value
+}
+
+func Map<K, V>.ResizeData() {
+
+}

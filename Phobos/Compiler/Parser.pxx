@@ -1,0 +1,34 @@
+import AbstractSyntaxTree
+
+type Parser struct {
+    scanner:      Scanner
+    currentToken: Token
+}
+
+func Parser.ParseVariableDeclaration() -> ^VariableDeclaration {
+    var varToken = CurrentToken
+    NextToken()
+
+    var identifiers = ParseIdentifierList()
+    type: Type
+    expressions: List<Expression>
+
+    if MatchToken(CurrentToken, TokenKind.Colon) {
+        type = ParseType()
+    }
+    
+    if MatchCurrentToken(TokenKInd.Assign) {
+        expressions = ParseExpressionList()
+    }
+
+    if type == null && expressions == null {
+        ReportExpectedTypeOrExpression()
+        return SkipToEndOfLine()
+    } else if IsEndOfLine(CurrentToken) {
+        NextToken()
+        return new VariableDeclaration { token = varToken, identifiers = identifiers, type = type, expressions = expressions }
+    } else {
+        ReportExpectedEndOfLine()
+        return SkipToEndOfLine()
+    }
+}

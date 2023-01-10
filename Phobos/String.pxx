@@ -1,0 +1,15 @@
+// UTF-8 string.
+// Strings are mutable in Phobos.
+
+export struct String {
+    length: Int
+    // data:   ^Array<Byte>
+}
+
+// export func String.Hash() -> Int {
+//     return 2
+// }
+
+// export func String.Length() -> Int {
+//     return length
+// }

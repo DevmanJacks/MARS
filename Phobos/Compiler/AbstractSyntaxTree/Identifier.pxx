@@ -1,0 +1,13 @@
+// An Identifier
+
+struct Identifier {
+    token: Token
+}
+
+func Identifier.StartPos() -> Pos {
+    return token.StartPos()
+}
+
+func Identifier.EndPos() -> Pos {
+    return token.EndPos()
+}
