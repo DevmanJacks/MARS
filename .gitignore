@@ -396,3 +396,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+Phobos/Compiler/Test.ir1
+Phobos/Compiler/Test.ir2
+Phobos/Compiler/Test.exe

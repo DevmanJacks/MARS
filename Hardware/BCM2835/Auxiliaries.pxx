@@ -20,3 +20,33 @@ const AUX_SPI0_IO_REG:    ^UInt32 = 0x20215090          // SPI 1 Data
 const AUX_SPI0_PEEK_REG:  ^UInt32 = 0x20215094          // SPI 1 Peek
 const AUX_SPI1_CNTL0_REG: ^UInt32 = 0x202150C0          // SPI 2 Control register 0
 const AUX_SPI1_CNTL1_REG: ^UInt32 = 0x202150C4          // SPI 2 Control register 1
+
+func UartInit() {
+    AUX_ENABLES^ = 1
+    AUX_MU_IER_REG^ = 0
+    AUX_MU_CNTL_REG^ = 0
+    AUX_MU_LCR_REG^ = 3
+    AUX_MU_MCR_REG^ = 0
+    AUX_MU_IER_REG^ = 0
+    AUX_MU_IIR_REG^ = 0xc6
+    AUX_MU_BAUD_REG^ = 270          // ((250_000_000 / 115200) / 8) - 1 = 270
+
+    GpioSetPinFunction(14, FunctionSelect.AlternateFunction3)           // (TXD1)
+    GpioSetPinFunction(15, FunctionSelect.AlternateFunction3)           // (RXD1)
+    GpioSetPullUpPullDownOnPins(Int[] {14, 15}, PullUpPullDown.Off)
+
+    AUX_MU_CNTL_REG^ = 3            // Enable transmit and receive
+}
+
+func UartPutChar(c: Char) {
+
+}
+
+// void uart_putc ( unsigned int c )
+// {
+//     while(1)
+//     {
+//         if(GET32(AUX_MU_LSR_REG)&0x20) break;
+//     }
+//     PUT32(AUX_MU_IO_REG,c);
+// }
