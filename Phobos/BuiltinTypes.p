@@ -1,6 +1,6 @@
 // Builtin types that compiler relies on
 
-const Byte = UInt8
+// const Byte = UInt8
 
 //struct Guid {
 //    bytes: [16]Byte
@@ -19,10 +19,10 @@ const Byte = UInt8
 //     }
 // }
 
-export struct Range {
-    start: Int
-    end:   Int
-}
+// export struct Range {
+//     start: Int
+//     end:   Int
+// }
 
 // export Range(start: Int?, end: Int?) {
 //     return Range { start, end }

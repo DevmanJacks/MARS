@@ -1,4 +1,6 @@
 
 func Main() {
-    a := 5
+    a := Pos(5)
+    src := "1 + 2"
+    scanner := Scanner(src.ToByteArray())
 }

@@ -8,16 +8,16 @@ export enum TokenKind {
 }
 
 export struct Token {
-    kind:  TokenKind
-    start: Pos
-    end:   Pos
+    _kind:  TokenKind
+    _start: Pos
+    _end:   Pos
 
     // Don't reference this directly - it may not have a value
-    lexeme: String
+    _lexeme: String
 }
 
 export func Token(kind: TokenKind, start: Pos, end: Pos) -> Token {
-    return Token { kind = kind, start = start, end = end }
+    return Token { _kind = kind, _start = start, _end = end }
 }
 
 // export func Token.Lexeme() -> String {
