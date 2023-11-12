@@ -3,8 +3,8 @@
 export struct Scanner {
     _code: []Byte
 
-    _offset:        UInt32
-    // currentChar:   Char
+    _offset:        Int32
+    _currentChar:   Char
     _token:         Token
     _atEndOfSource: Bool
 }
@@ -23,36 +23,29 @@ export func Scanner(code: []Byte) -> ^Scanner {
 }
 
 func Scanner.NextChar() {
-//     if (nextOffset >= code.length) {
-//         atEndOfSource = true
-//         return
-//     }
+    if _atEndOfSource
+        return
 
-//     offset = nextOffset
+    if (_offset >= _code.Length()) {
+        _atEndOfSource = true
+        return
+    }
 
-//     // TODO: handle unicode characters more than 1 byte
-//     currentChar = code[offset]
-//     nextOffset += 1
+    _currentChar = _code[_offset]
+    _offset += 1
 }
 
-// export func Scanner.NextToken() {
-//     if atEndOfSource {
-//         if token.kind != TokenKind.EndOfSource {
-//             EndOfSourcePos := Pos(offset)
-//             token = Token(TokenKind.EndOfSource, EndOfSourcePos, EndOfSourcePos)
-//         }
+export func Scanner.NextToken() {
+    if _atEndOfSource
+        return
 
-//         return
-//     }
+    if _currentChar.IsAlpha()
+        ScanIdentifier()
+    else if _currentChar.IsDigit()
+        ScanNumber()
+}
 
-//     if currentChar.IsAlpha() {
-//         ScanIdentifier()
-//     } else if currentChar.IsDigit() {
-//         ScanNumber()
-//     }
-// }
-
-// func Scanner.ScanIdentifier() {
+func Scanner.ScanIdentifier() {
 //     start := Pos(offset)
 // Console.Write(" ")
 //     while currentChar.IsAlpha() && !atEndOfSource {
@@ -60,9 +53,9 @@ func Scanner.NextChar() {
 //     }
 
 //     token = Token(TokenKind.Identifier, start, Pos(offset - 1))
-// }
+}
 
-// func Scanner.ScanNumber() {
+func Scanner.ScanNumber() {
 //     start := Pos(offset)
 
 //     while currentChar.IsDigit() && !atEndOfSource {
@@ -70,4 +63,8 @@ func Scanner.NextChar() {
 //     }
 
 //     token = Token(TokenKind.IntegerLiteral, start, Pos(offset - 1))
-// }
+}
+
+func Scanner.Token() -> Token {
+    return _token
+}

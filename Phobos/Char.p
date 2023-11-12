@@ -1,21 +1,23 @@
 // UTF-8 character
 
-// export type Char UInt32
+export struct Char {
+    _byte: Byte
+}
 
-// export func Char(byte: Byte) -> Char {
-//     return byte
-// }
+export func Char(byte: Byte) -> Char {
+    return Char { _byte = byte }
+}
 
-// export func Char.IsAlpha() -> Bool {
-//     if (self >= 65 && self <= 90) || (self >= 97 && self <= 122)
-//         return true
+export func Char.IsAlpha() -> Bool {
+    if (_byte >= 65 && _byte <= 90) || (_byte >= 97 && _byte <= 122)
+        return true
     
-//     return false
-// }
+    return false
+}
 
-// export func Char.IsDigit() -> Bool {
-//     if self >= 48 && self <= 57
-//         return true
+export func Char.IsDigit() -> Bool {
+    if _byte >= 48 && _byte <= 57
+        return true
 
-//     return false
-// }
+    return false
+}
